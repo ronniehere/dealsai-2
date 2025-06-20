@@ -1,16 +1,17 @@
+
 import { Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
 
 const Footer = () => {
   const handleLinkedInClick = () => {
-    window.open('https://linkedin.com/company/powerclosers', '_blank');
+    window.open('https://linkedin.com/company/closersai', '_blank');
   };
 
   const handleTwitterClick = () => {
-    window.open('https://twitter.com/power_closers', '_blank');
+    window.open('https://twitter.com/closers_ai', '_blank');
   };
 
   const handleEmailClick = () => {
-    window.location.href = 'mailto:hello@powerclosers.com';
+    window.location.href = 'mailto:hello@closers.ai';
   };
 
   const handlePhoneClick = () => {
@@ -23,7 +24,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-2xl font-bold text-white mb-4">
-              Power <span className="text-yellow-500">Closers</span>
+              closers.ai
             </h3>
             <p className="text-gray-400 mb-6 max-w-md">
               The premier sales consulting firm helping businesses, coaches, and entrepreneurs 
@@ -31,16 +32,16 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <div 
-                className="p-2 bg-gray-800 rounded-lg hover:bg-yellow-500 transition-colors cursor-pointer"
+                className="p-2 bg-gray-800 rounded-lg hover:bg-white hover:text-black transition-colors cursor-pointer"
                 onClick={handleLinkedInClick}
               >
-                <Linkedin className="w-5 h-5 text-white" />
+                <Linkedin className="w-5 h-5 text-white hover:text-black" />
               </div>
               <div 
-                className="p-2 bg-gray-800 rounded-lg hover:bg-yellow-500 transition-colors cursor-pointer"
+                className="p-2 bg-gray-800 rounded-lg hover:bg-white hover:text-black transition-colors cursor-pointer"
                 onClick={handleTwitterClick}
               >
-                <Twitter className="w-5 h-5 text-white" />
+                <Twitter className="w-5 h-5 text-white hover:text-black" />
               </div>
             </div>
           </div>
@@ -48,27 +49,27 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-semibold mb-4">Services</h4>
             <ul className="space-y-2 text-gray-400">
-              <li className="hover:text-yellow-500 cursor-pointer">Lead Generation</li>
-              <li className="hover:text-yellow-500 cursor-pointer">Sales Training</li>
-              <li className="hover:text-yellow-500 cursor-pointer">Closing Systems</li>
-              <li className="hover:text-yellow-500 cursor-pointer">CRM Setup</li>
-              <li className="hover:text-yellow-500 cursor-pointer">Sales Funnels</li>
+              <li className="hover:text-white cursor-pointer">Lead Generation</li>
+              <li className="hover:text-white cursor-pointer">Sales Training</li>
+              <li className="hover:text-white cursor-pointer">Closing Systems</li>
+              <li className="hover:text-white cursor-pointer">CRM Setup</li>
+              <li className="hover:text-white cursor-pointer">Sales Funnels</li>
             </ul>
           </div>
           
           <div>
             <h4 className="text-white font-semibold mb-4">Contact</h4>
             <ul className="space-y-3 text-gray-400">
-              <li className="flex items-center cursor-pointer hover:text-yellow-500" onClick={handlePhoneClick}>
-                <Phone className="w-4 h-4 mr-3 text-yellow-500" />
+              <li className="flex items-center cursor-pointer hover:text-white" onClick={handlePhoneClick}>
+                <Phone className="w-4 h-4 mr-3 text-white" />
                 (555) 123-CLOSE
               </li>
-              <li className="flex items-center cursor-pointer hover:text-yellow-500" onClick={handleEmailClick}>
-                <Mail className="w-4 h-4 mr-3 text-yellow-500" />
-                hello@powerclosers.com
+              <li className="flex items-center cursor-pointer hover:text-white" onClick={handleEmailClick}>
+                <Mail className="w-4 h-4 mr-3 text-white" />
+                hello@closers.ai
               </li>
               <li className="flex items-center">
-                <MapPin className="w-4 h-4 mr-3 text-yellow-500" />
+                <MapPin className="w-4 h-4 mr-3 text-white" />
                 New York, NY
               </li>
             </ul>
@@ -77,7 +78,7 @@ const Footer = () => {
         
         <div className="border-t border-gray-800 pt-8 text-center">
           <p className="text-gray-500">
-            © 2024 Power Closers. All rights reserved. | Privacy Policy | Terms of Service
+            © 2024 closers.ai. All rights reserved. | Privacy Policy | Terms of Service
           </p>
         </div>
       </div>

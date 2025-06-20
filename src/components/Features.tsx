@@ -4,22 +4,22 @@ import { CheckCircle, DollarSign, Clock, Users } from "lucide-react";
 const Features = () => {
   const features = [
     {
-      icon: <DollarSign className="w-8 h-8 text-yellow-500" />,
+      icon: <DollarSign className="w-8 h-8 text-white" />,
       title: "Proven ROI Systems",
       description: "Our clients typically see 3-5x ROI within 90 days of implementation"
     },
     {
-      icon: <Clock className="w-8 h-8 text-yellow-500" />,
+      icon: <Clock className="w-8 h-8 text-white" />,
       title: "Rapid Implementation",
       description: "Get your new sales systems up and running in as little as 2 weeks"
     },
     {
-      icon: <Users className="w-8 h-8 text-yellow-500" />,
+      icon: <Users className="w-8 h-8 text-white" />,
       title: "24/7 Support",
       description: "Dedicated support team available around the clock for your success"
     },
     {
-      icon: <CheckCircle className="w-8 h-8 text-yellow-500" />,
+      icon: <CheckCircle className="w-8 h-8 text-white" />,
       title: "Results Guaranteed",
       description: "We stand behind our work with performance guarantees and success metrics"
     }
@@ -30,7 +30,7 @@ const Features = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Why Choose <span className="text-yellow-500">Power Closers</span>
+            Why Choose <span className="text-white">closers.ai</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             We don't just teach theory. We implement proven systems that generate real results for real businesses.
@@ -41,7 +41,7 @@ const Features = () => {
           {features.map((feature, index) => (
             <div key={index} className="text-center group">
               <div className="mb-6 flex justify-center">
-                <div className="p-4 bg-yellow-500/10 rounded-full group-hover:bg-yellow-500/20 transition-colors duration-300">
+                <div className="p-4 bg-white/10 rounded-full group-hover:bg-white/20 transition-colors duration-300">
                   {feature.icon}
                 </div>
               </div>

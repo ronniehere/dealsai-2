@@ -5,7 +5,7 @@ import { ArrowRight, Phone, Calendar } from "lucide-react";
 const CTA = () => {
   const handleBookStrategyCall = () => {
     // Open Calendly or booking system
-    window.open('https://calendly.com/powerclosers/strategy-call', '_blank');
+    window.open('https://calendly.com/closersai/strategy-call', '_blank');
   };
 
   const handleCallNow = () => {
@@ -14,12 +14,12 @@ const CTA = () => {
   };
 
   return (
-    <section id="cta-section" className="bg-gradient-to-r from-yellow-600 to-yellow-500 py-20 px-4">
+    <section id="cta-section" className="bg-white py-20 px-4">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
           Ready to 10X Your Sales?
         </h2>
-        <p className="text-xl text-black/80 mb-8 max-w-2xl mx-auto">
+        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
           Stop leaving money on the table. Let's build a sales system that works 24/7 
           to generate leads and close deals for your business.
         </p>
@@ -46,7 +46,7 @@ const CTA = () => {
 
         <div className="bg-black/10 rounded-lg p-6 max-w-2xl mx-auto">
           <p className="text-black font-medium mb-2">🔥 Limited Time Offer</p>
-          <p className="text-black/80">
+          <p className="text-gray-600">
             Book your strategy call this week and get a FREE lead generation audit 
             (normally $1,997) plus our exclusive "7-Figure Closing Scripts" guide.
           </p>
