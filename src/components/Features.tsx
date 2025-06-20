@@ -4,29 +4,29 @@ import { CheckCircle, DollarSign, Clock, Users } from "lucide-react";
 const Features = () => {
   const features = [
     {
-      icon: <DollarSign className="w-8 h-8 text-blue-500" />,
+      icon: <DollarSign className="w-8 h-8 text-blue-400" />,
       title: "Proven ROI Systems",
       description: "Our clients typically see 3-5x ROI within 90 days of implementation"
     },
     {
-      icon: <Clock className="w-8 h-8 text-blue-500" />,
+      icon: <Clock className="w-8 h-8 text-blue-400" />,
       title: "Rapid Implementation",
       description: "Get your new sales systems up and running in as little as 2 weeks"
     },
     {
-      icon: <Users className="w-8 h-8 text-blue-500" />,
+      icon: <Users className="w-8 h-8 text-blue-400" />,
       title: "24/7 Support",
       description: "Dedicated support team available around the clock for your success"
     },
     {
-      icon: <CheckCircle className="w-8 h-8 text-blue-500" />,
+      icon: <CheckCircle className="w-8 h-8 text-blue-400" />,
       title: "Results Guaranteed",
       description: "We stand behind our work with performance guarantees and success metrics"
     }
   ];
 
   return (
-    <section className="bg-gradient-to-br from-gray-900 to-gray-800 py-20 px-4">
+    <section className="bg-gradient-to-br from-gray-950 to-gray-900 py-20 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">

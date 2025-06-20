@@ -19,7 +19,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-900 py-16 px-4 border-t border-gray-700">
+    <footer className="bg-gray-950 py-16 px-4 border-t border-gray-800">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div className="col-span-1 md:col-span-2">
@@ -76,7 +76,7 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-gray-700 pt-8 text-center">
+        <div className="border-t border-gray-800 pt-8 text-center">
           <p className="text-gray-500">
             © 2024 closers.ai. All rights reserved. | Privacy Policy | Terms of Service
           </p>

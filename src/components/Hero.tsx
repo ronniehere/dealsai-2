@@ -21,12 +21,12 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-black flex items-center justify-center px-4 py-20">
+    <section className="min-h-screen bg-gradient-to-br from-gray-950 via-blue-950 to-black flex items-center justify-center px-4 py-20">
       <div className="max-w-6xl mx-auto text-center">
         <div className="mb-8">
-          <div className="inline-flex items-center px-4 py-2 bg-blue-600/20 border border-blue-400/30 rounded-full mb-6">
+          <div className="inline-flex items-center px-4 py-2 bg-blue-600/10 border border-blue-400/20 rounded-full mb-6">
             <Target className="w-4 h-4 text-blue-400 mr-2" />
-            <span className="text-blue-100 text-sm font-medium">Close More Deals. Generate More Leads.</span>
+            <span className="text-blue-200 text-sm font-medium">Close More Deals. Generate More Leads.</span>
           </div>
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
             Turn Prospects Into
