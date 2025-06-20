@@ -1,17 +1,16 @@
-
 import { Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
 
 const Footer = () => {
   const handleLinkedInClick = () => {
-    window.open('https://linkedin.com/company/closersai', '_blank');
+    window.open('https://linkedin.com/company/powerclosers', '_blank');
   };
 
   const handleTwitterClick = () => {
-    window.open('https://twitter.com/closers_ai', '_blank');
+    window.open('https://twitter.com/power_closers', '_blank');
   };
 
   const handleEmailClick = () => {
-    window.location.href = 'mailto:hello@closersai.com';
+    window.location.href = 'mailto:hello@powerclosers.com';
   };
 
   const handlePhoneClick = () => {
@@ -24,7 +23,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-2xl font-bold text-white mb-4">
-              Closers <span className="text-yellow-500">AI</span>
+              Power <span className="text-yellow-500">Closers</span>
             </h3>
             <p className="text-gray-400 mb-6 max-w-md">
               The premier sales consulting firm helping businesses, coaches, and entrepreneurs 
@@ -66,7 +65,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center cursor-pointer hover:text-yellow-500" onClick={handleEmailClick}>
                 <Mail className="w-4 h-4 mr-3 text-yellow-500" />
-                hello@closersai.com
+                hello@powerclosers.com
               </li>
               <li className="flex items-center">
                 <MapPin className="w-4 h-4 mr-3 text-yellow-500" />
@@ -78,7 +77,7 @@ const Footer = () => {
         
         <div className="border-t border-gray-800 pt-8 text-center">
           <p className="text-gray-500">
-            © 2024 Closers AI. All rights reserved. | Privacy Policy | Terms of Service
+            © 2024 Power Closers. All rights reserved. | Privacy Policy | Terms of Service
           </p>
         </div>
       </div>

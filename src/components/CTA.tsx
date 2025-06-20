@@ -5,7 +5,7 @@ import { ArrowRight, Phone, Calendar } from "lucide-react";
 const CTA = () => {
   const handleBookStrategyCall = () => {
     // Open Calendly or booking system
-    window.open('https://calendly.com/closersai/strategy-call', '_blank');
+    window.open('https://calendly.com/powerclosers/strategy-call', '_blank');
   };
 
   const handleCallNow = () => {
