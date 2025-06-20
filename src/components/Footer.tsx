@@ -19,7 +19,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-black py-16 px-4 border-t border-gray-800">
+    <footer className="bg-gray-900 py-16 px-4 border-t border-gray-700">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div className="col-span-1 md:col-span-2">
@@ -32,16 +32,16 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <div 
-                className="p-2 bg-gray-800 rounded-lg hover:bg-white hover:text-black transition-colors cursor-pointer"
+                className="p-2 bg-gray-800 rounded-lg hover:bg-blue-600 transition-colors cursor-pointer"
                 onClick={handleLinkedInClick}
               >
-                <Linkedin className="w-5 h-5 text-white hover:text-black" />
+                <Linkedin className="w-5 h-5 text-white" />
               </div>
               <div 
-                className="p-2 bg-gray-800 rounded-lg hover:bg-white hover:text-black transition-colors cursor-pointer"
+                className="p-2 bg-gray-800 rounded-lg hover:bg-blue-600 transition-colors cursor-pointer"
                 onClick={handleTwitterClick}
               >
-                <Twitter className="w-5 h-5 text-white hover:text-black" />
+                <Twitter className="w-5 h-5 text-white" />
               </div>
             </div>
           </div>
@@ -49,34 +49,34 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-semibold mb-4">Services</h4>
             <ul className="space-y-2 text-gray-400">
-              <li className="hover:text-white cursor-pointer">Lead Generation</li>
-              <li className="hover:text-white cursor-pointer">Sales Training</li>
-              <li className="hover:text-white cursor-pointer">Closing Systems</li>
-              <li className="hover:text-white cursor-pointer">CRM Setup</li>
-              <li className="hover:text-white cursor-pointer">Sales Funnels</li>
+              <li className="hover:text-blue-400 cursor-pointer">Lead Generation</li>
+              <li className="hover:text-blue-400 cursor-pointer">Sales Training</li>
+              <li className="hover:text-blue-400 cursor-pointer">Closing Systems</li>
+              <li className="hover:text-blue-400 cursor-pointer">CRM Setup</li>
+              <li className="hover:text-blue-400 cursor-pointer">Sales Funnels</li>
             </ul>
           </div>
           
           <div>
             <h4 className="text-white font-semibold mb-4">Contact</h4>
             <ul className="space-y-3 text-gray-400">
-              <li className="flex items-center cursor-pointer hover:text-white" onClick={handlePhoneClick}>
-                <Phone className="w-4 h-4 mr-3 text-white" />
+              <li className="flex items-center cursor-pointer hover:text-blue-400" onClick={handlePhoneClick}>
+                <Phone className="w-4 h-4 mr-3 text-blue-400" />
                 (555) 123-CLOSE
               </li>
-              <li className="flex items-center cursor-pointer hover:text-white" onClick={handleEmailClick}>
-                <Mail className="w-4 h-4 mr-3 text-white" />
+              <li className="flex items-center cursor-pointer hover:text-blue-400" onClick={handleEmailClick}>
+                <Mail className="w-4 h-4 mr-3 text-blue-400" />
                 hello@closers.ai
               </li>
               <li className="flex items-center">
-                <MapPin className="w-4 h-4 mr-3 text-white" />
+                <MapPin className="w-4 h-4 mr-3 text-blue-400" />
                 New York, NY
               </li>
             </ul>
           </div>
         </div>
         
-        <div className="border-t border-gray-800 pt-8 text-center">
+        <div className="border-t border-gray-700 pt-8 text-center">
           <p className="text-gray-500">
             © 2024 closers.ai. All rights reserved. | Privacy Policy | Terms of Service
           </p>
