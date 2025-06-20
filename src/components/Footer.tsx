@@ -2,6 +2,22 @@
 import { Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
 
 const Footer = () => {
+  const handleLinkedInClick = () => {
+    window.open('https://linkedin.com/company/closersai', '_blank');
+  };
+
+  const handleTwitterClick = () => {
+    window.open('https://twitter.com/closers_ai', '_blank');
+  };
+
+  const handleEmailClick = () => {
+    window.location.href = 'mailto:hello@closersai.com';
+  };
+
+  const handlePhoneClick = () => {
+    window.location.href = 'tel:+15551232563';
+  };
+
   return (
     <footer className="bg-black py-16 px-4 border-t border-gray-800">
       <div className="max-w-6xl mx-auto">
@@ -15,10 +31,16 @@ const Footer = () => {
               scale their revenue through proven lead generation and closing systems.
             </p>
             <div className="flex space-x-4">
-              <div className="p-2 bg-gray-800 rounded-lg hover:bg-yellow-500 transition-colors cursor-pointer">
+              <div 
+                className="p-2 bg-gray-800 rounded-lg hover:bg-yellow-500 transition-colors cursor-pointer"
+                onClick={handleLinkedInClick}
+              >
                 <Linkedin className="w-5 h-5 text-white" />
               </div>
-              <div className="p-2 bg-gray-800 rounded-lg hover:bg-yellow-500 transition-colors cursor-pointer">
+              <div 
+                className="p-2 bg-gray-800 rounded-lg hover:bg-yellow-500 transition-colors cursor-pointer"
+                onClick={handleTwitterClick}
+              >
                 <Twitter className="w-5 h-5 text-white" />
               </div>
             </div>
@@ -38,11 +60,11 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-semibold mb-4">Contact</h4>
             <ul className="space-y-3 text-gray-400">
-              <li className="flex items-center">
+              <li className="flex items-center cursor-pointer hover:text-yellow-500" onClick={handlePhoneClick}>
                 <Phone className="w-4 h-4 mr-3 text-yellow-500" />
                 (555) 123-CLOSE
               </li>
-              <li className="flex items-center">
+              <li className="flex items-center cursor-pointer hover:text-yellow-500" onClick={handleEmailClick}>
                 <Mail className="w-4 h-4 mr-3 text-yellow-500" />
                 hello@closersai.com
               </li>

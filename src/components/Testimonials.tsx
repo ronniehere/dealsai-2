@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
 
@@ -31,7 +30,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="bg-gray-900 py-20 px-4">
+    <section id="testimonials-section" className="bg-gray-900 py-20 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
