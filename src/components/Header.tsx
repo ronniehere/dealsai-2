@@ -2,7 +2,7 @@
 
 const Header = () => {
   return (
-    <header className="bg-black/90 backdrop-blur-sm">
+    <header className="bg-black">
       <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="text-2xl font-bold text-white">
