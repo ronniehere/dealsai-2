@@ -1,7 +1,8 @@
 
+
 const Header = () => {
   return (
-    <header className="bg-black/90 backdrop-blur-sm border-b border-gray-800">
+    <header className="bg-black/90 backdrop-blur-sm">
       <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="text-2xl font-bold text-white">
@@ -14,3 +15,4 @@ const Header = () => {
 };
 
 export default Header;
+
