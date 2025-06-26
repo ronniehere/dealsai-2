@@ -1,5 +1,5 @@
 
-import { Mail, Phone, MapPin, Linkedin, Twitter } from "lucide-react";
+import { Mail, MapPin, Linkedin, Twitter } from "lucide-react";
 
 const Footer = () => {
   const handleLinkedInClick = () => {
@@ -14,12 +14,8 @@ const Footer = () => {
     window.location.href = 'mailto:hello@closers.ai';
   };
 
-  const handlePhoneClick = () => {
-    window.location.href = 'tel:+15551232563';
-  };
-
   return (
-    <footer className="bg-gray-950 py-16 px-4 border-t border-gray-800">
+    <footer className="bg-black py-16 px-4 border-t border-gray-800">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div className="col-span-1 md:col-span-2">
@@ -60,10 +56,6 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-semibold mb-4">Contact</h4>
             <ul className="space-y-3 text-gray-400">
-              <li className="flex items-center cursor-pointer hover:text-blue-400" onClick={handlePhoneClick}>
-                <Phone className="w-4 h-4 mr-3 text-blue-400" />
-                (555) 123-CLOSE
-              </li>
               <li className="flex items-center cursor-pointer hover:text-blue-400" onClick={handleEmailClick}>
                 <Mail className="w-4 h-4 mr-3 text-blue-400" />
                 hello@closers.ai
