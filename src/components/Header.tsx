@@ -11,7 +11,7 @@ const Header = () => {
         </Link>
         <div className="flex gap-4">
           <Link to="/blog">
-            <Button variant="outline" className="text-white border-white hover:bg-white hover:text-black">
+            <Button variant="outline" className="text-black border-white hover:bg-white hover:text-black">
               Blog
             </Button>
           </Link>
