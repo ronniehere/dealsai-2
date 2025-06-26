@@ -1,5 +1,6 @@
 
 import { Mail, MapPin, Linkedin, Twitter } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const handleLinkedInClick = () => {
@@ -69,9 +70,12 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-800 pt-8 text-center">
-          <p className="text-gray-500">
+          <p className="text-gray-500 mb-4">
             © 2024 closers.ai. All rights reserved. | Privacy Policy | Terms of Service
           </p>
+          <Link to="/admin/login" className="text-gray-600 hover:text-gray-400 text-sm">
+            Admin
+          </Link>
         </div>
       </div>
     </footer>

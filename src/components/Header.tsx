@@ -15,11 +15,6 @@ const Header = () => {
               Blog
             </Button>
           </Link>
-          <Link to="/admin/login">
-            <Button variant="ghost" className="text-white hover:bg-white/10">
-              Admin
-            </Button>
-          </Link>
         </div>
       </div>
     </div>
