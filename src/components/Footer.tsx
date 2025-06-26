@@ -60,10 +60,6 @@ const Footer = () => {
                 <Mail className="w-4 h-4 mr-3 text-blue-400" />
                 hello@deals.ai
               </li>
-              <li className="flex items-center">
-                <MapPin className="w-4 h-4 mr-3 text-blue-400" />
-                New York, NY
-              </li>
             </ul>
           </div>
         </div>
