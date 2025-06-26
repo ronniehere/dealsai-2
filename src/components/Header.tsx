@@ -7,7 +7,7 @@ const Header = () => {
     <div className="absolute top-0 left-0 right-0 z-50 p-6">
       <div className="flex justify-between items-center">
         <Link to="/" className="text-2xl font-bold text-white">
-          closers.ai
+          DealsAI
         </Link>
         <div className="flex gap-4">
           <Link to="/blog">

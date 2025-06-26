@@ -1,18 +1,17 @@
-
 import { Mail, MapPin, Linkedin, Twitter } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   const handleLinkedInClick = () => {
-    window.open('https://linkedin.com/company/closersai', '_blank');
+    window.open('https://linkedin.com/company/dealsai', '_blank');
   };
 
   const handleTwitterClick = () => {
-    window.open('https://twitter.com/closers_ai', '_blank');
+    window.open('https://twitter.com/deals_ai', '_blank');
   };
 
   const handleEmailClick = () => {
-    window.location.href = 'mailto:hello@closers.ai';
+    window.location.href = 'mailto:hello@deals.ai';
   };
 
   return (
@@ -21,7 +20,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-2xl font-bold text-white mb-4">
-              closers.ai
+              DealsAI
             </h3>
             <p className="text-gray-400 mb-6 max-w-md">
               The premier sales consulting firm helping businesses, coaches, and entrepreneurs 
@@ -59,7 +58,7 @@ const Footer = () => {
             <ul className="space-y-3 text-gray-400">
               <li className="flex items-center cursor-pointer hover:text-blue-400" onClick={handleEmailClick}>
                 <Mail className="w-4 h-4 mr-3 text-blue-400" />
-                hello@closers.ai
+                hello@deals.ai
               </li>
               <li className="flex items-center">
                 <MapPin className="w-4 h-4 mr-3 text-blue-400" />
@@ -71,7 +70,7 @@ const Footer = () => {
         
         <div className="border-t border-gray-800 pt-8 text-center">
           <p className="text-gray-500 mb-4">
-            © 2024 closers.ai. All rights reserved. | Privacy Policy | Terms of Service
+            © 2024 DealsAI. All rights reserved. | Privacy Policy | Terms of Service
           </p>
           <Link to="/admin/login" className="text-gray-600 hover:text-gray-400 text-sm">
             Admin

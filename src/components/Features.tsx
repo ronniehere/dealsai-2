@@ -30,7 +30,7 @@ const Features = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Why Choose <span className="text-blue-400">closers.ai</span>
+            Why Choose <span className="text-blue-400">DealsAI</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             We don't just teach theory. We implement proven systems that generate real results for real businesses.
