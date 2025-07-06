@@ -89,11 +89,6 @@ const AdminLogin = () => {
               {isLoading ? 'Logging in...' : 'Login'}
             </Button>
           </form>
-          <div className="mt-6 p-4 bg-gray-100 rounded-md">
-            <p className="text-sm text-gray-600 font-medium">Demo Credentials:</p>
-            <p className="text-sm text-gray-500">Username: admin</p>
-            <p className="text-sm text-gray-500">Password: closers2024!</p>
-          </div>
         </CardContent>
       </Card>
     </div>
