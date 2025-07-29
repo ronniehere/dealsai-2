@@ -37,7 +37,7 @@ const AdminDashboard = () => {
 
   useEffect(() => {
     if (!isAuthenticated) {
-      navigate('/admin/login');
+      navigate('/auth');
       return;
     }
 
@@ -63,7 +63,7 @@ const AdminDashboard = () => {
 
   const handleLogout = () => {
     logout();
-    navigate('/admin/login');
+    navigate('/auth');
     toast({
       title: "Logged Out",
       description: "You have been successfully logged out",

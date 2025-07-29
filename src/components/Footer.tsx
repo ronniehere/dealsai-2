@@ -68,7 +68,7 @@ const Footer = () => {
           <p className="text-gray-500 mb-4">
             © 2024 DealsAI. All rights reserved. | Privacy Policy | Terms of Service
           </p>
-          <Link to="/admin/login" className="text-gray-600 hover:text-gray-400 text-sm">
+          <Link to="/auth" className="text-gray-600 hover:text-gray-400 text-sm">
             Admin
           </Link>
         </div>
