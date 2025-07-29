@@ -4,21 +4,37 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Calendar, User, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { BlogPost } from '@/types/blog';
+import { supabase } from '@/integrations/supabase/client';
 import Header from '@/components/Header';
+
+interface BlogPost {
+  id: string;
+  title: string;
+  content: string;
+  excerpt: string;
+  author: string;
+  published_at: string;
+  created_at: string;
+  updated_at: string;
+}
 
 const Blog = () => {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
 
   useEffect(() => {
-    const storedPosts = localStorage.getItem('blogPosts');
-    if (storedPosts) {
-      const posts = JSON.parse(storedPosts);
-      setBlogPosts(posts.sort((a: BlogPost, b: BlogPost) => 
-        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-      ));
-    }
+    fetchBlogPosts();
   }, []);
+
+  const fetchBlogPosts = async () => {
+    const { data, error } = await supabase
+      .from('blog_posts')
+      .select('*')
+      .order('published_at', { ascending: false });
+
+    if (!error && data) {
+      setBlogPosts(data);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black">
@@ -60,7 +76,7 @@ const Blog = () => {
                       </div>
                       <div className="flex items-center gap-1">
                         <Calendar className="w-4 h-4" />
-                        {new Date(post.publishedAt).toLocaleDateString()}
+                        {new Date(post.published_at).toLocaleDateString()}
                       </div>
                     </div>
                   </CardHeader>

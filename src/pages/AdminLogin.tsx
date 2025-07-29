@@ -10,7 +10,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Lock, User } from 'lucide-react';
 
 const AdminLogin = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const { login } = useAuth();
@@ -21,9 +21,9 @@ const AdminLogin = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    const success = login(username, password);
+    const { error } = await login(email, password);
     
-    if (success) {
+    if (!error) {
       toast({
         title: "Login Successful",
         description: "Welcome to the admin dashboard",
@@ -32,7 +32,7 @@ const AdminLogin = () => {
     } else {
       toast({
         title: "Login Failed",
-        description: "Invalid username or password",
+        description: error.message || "Invalid email or password",
         variant: "destructive",
       });
     }
@@ -52,15 +52,15 @@ const AdminLogin = () => {
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="username">Username</Label>
+              <Label htmlFor="email">Email</Label>
               <div className="relative">
                 <User className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
                 <Input
-                  id="username"
-                  type="text"
-                  placeholder="Enter username"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
+                  id="email"
+                  type="email"
+                  placeholder="Enter email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="pl-10"
                   required
                 />

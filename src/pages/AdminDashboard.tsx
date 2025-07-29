@@ -8,8 +8,19 @@ import { Label } from '@/components/ui/label';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/hooks/use-toast';
-import { BlogPost } from '@/types/blog';
+import { supabase } from '@/integrations/supabase/client';
 import { Plus, LogOut, Edit, Trash2, Calendar } from 'lucide-react';
+
+interface BlogPost {
+  id: string;
+  title: string;
+  content: string;
+  excerpt: string;
+  author: string;
+  published_at: string;
+  created_at: string;
+  updated_at: string;
+}
 
 const AdminDashboard = () => {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
@@ -30,11 +41,25 @@ const AdminDashboard = () => {
       return;
     }
 
-    const storedPosts = localStorage.getItem('blogPosts');
-    if (storedPosts) {
-      setBlogPosts(JSON.parse(storedPosts));
-    }
+    fetchBlogPosts();
   }, [isAuthenticated, navigate]);
+
+  const fetchBlogPosts = async () => {
+    const { data, error } = await supabase
+      .from('blog_posts')
+      .select('*')
+      .order('published_at', { ascending: false });
+
+    if (error) {
+      toast({
+        title: "Error",
+        description: "Failed to fetch blog posts",
+        variant: "destructive",
+      });
+    } else {
+      setBlogPosts(data || []);
+    }
+  };
 
   const handleLogout = () => {
     logout();
@@ -45,42 +70,55 @@ const AdminDashboard = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    const newPost: BlogPost = {
-      id: Date.now().toString(),
-      title: formData.title,
-      content: formData.content,
-      excerpt: formData.excerpt,
-      author: formData.author,
-      publishedAt: new Date(),
-      createdAt: new Date(),
-      updatedAt: new Date()
-    };
+    const { error } = await supabase
+      .from('blog_posts')
+      .insert({
+        title: formData.title,
+        content: formData.content,
+        excerpt: formData.excerpt,
+        author: formData.author,
+      });
 
-    const updatedPosts = [newPost, ...blogPosts];
-    setBlogPosts(updatedPosts);
-    localStorage.setItem('blogPosts', JSON.stringify(updatedPosts));
+    if (error) {
+      toast({
+        title: "Error",
+        description: "Failed to create blog post",
+        variant: "destructive",
+      });
+    } else {
+      setFormData({ title: '', content: '', excerpt: '', author: 'Admin' });
+      setIsCreating(false);
+      fetchBlogPosts(); // Refresh the list
 
-    setFormData({ title: '', content: '', excerpt: '', author: 'Admin' });
-    setIsCreating(false);
-
-    toast({
-      title: "Blog Post Created",
-      description: "Your blog post has been published successfully",
-    });
+      toast({
+        title: "Blog Post Created",
+        description: "Your blog post has been published successfully",
+      });
+    }
   };
 
-  const handleDelete = (id: string) => {
-    const updatedPosts = blogPosts.filter(post => post.id !== id);
-    setBlogPosts(updatedPosts);
-    localStorage.setItem('blogPosts', JSON.stringify(updatedPosts));
+  const handleDelete = async (id: string) => {
+    const { error } = await supabase
+      .from('blog_posts')
+      .delete()
+      .eq('id', id);
 
-    toast({
-      title: "Blog Post Deleted",
-      description: "The blog post has been removed",
-    });
+    if (error) {
+      toast({
+        title: "Error",
+        description: "Failed to delete blog post",
+        variant: "destructive",
+      });
+    } else {
+      fetchBlogPosts(); // Refresh the list
+      toast({
+        title: "Blog Post Deleted",
+        description: "The blog post has been removed",
+      });
+    }
   };
 
   if (!isAuthenticated) {
@@ -191,7 +229,7 @@ const AdminDashboard = () => {
                           <CardTitle className="text-white text-lg">{post.title}</CardTitle>
                           <div className="flex items-center gap-2 text-gray-400 text-sm mt-2">
                             <Calendar className="w-4 h-4" />
-                            {new Date(post.publishedAt).toLocaleDateString()}
+                            {new Date(post.published_at).toLocaleDateString()}
                           </div>
                         </div>
                         <Button
