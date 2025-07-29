@@ -25,6 +25,7 @@ interface BlogPost {
 const AdminDashboard = () => {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const [isCreating, setIsCreating] = useState(false);
+  const [editingPost, setEditingPost] = useState<BlogPost | null>(null);
   const [formData, setFormData] = useState({
     title: '',
     content: '',
@@ -73,31 +74,78 @@ const AdminDashboard = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    const { error } = await supabase
-      .from('blog_posts')
-      .insert({
-        title: formData.title,
-        content: formData.content,
-        excerpt: formData.excerpt,
-        author: formData.author,
-      });
+    if (editingPost) {
+      // Update existing post
+      const { error } = await supabase
+        .from('blog_posts')
+        .update({
+          title: formData.title,
+          content: formData.content,
+          excerpt: formData.excerpt,
+          author: formData.author,
+        })
+        .eq('id', editingPost.id);
 
-    if (error) {
-      toast({
-        title: "Error",
-        description: "Failed to create blog post",
-        variant: "destructive",
-      });
+      if (error) {
+        toast({
+          title: "Error",
+          description: "Failed to update blog post",
+          variant: "destructive",
+        });
+      } else {
+        setFormData({ title: '', content: '', excerpt: '', author: 'Admin' });
+        setEditingPost(null);
+        fetchBlogPosts(); // Refresh the list
+
+        toast({
+          title: "Blog Post Updated",
+          description: "Your blog post has been updated successfully",
+        });
+      }
     } else {
-      setFormData({ title: '', content: '', excerpt: '', author: 'Admin' });
-      setIsCreating(false);
-      fetchBlogPosts(); // Refresh the list
+      // Create new post
+      const { error } = await supabase
+        .from('blog_posts')
+        .insert({
+          title: formData.title,
+          content: formData.content,
+          excerpt: formData.excerpt,
+          author: formData.author,
+        });
 
-      toast({
-        title: "Blog Post Created",
-        description: "Your blog post has been published successfully",
-      });
+      if (error) {
+        toast({
+          title: "Error",
+          description: "Failed to create blog post",
+          variant: "destructive",
+        });
+      } else {
+        setFormData({ title: '', content: '', excerpt: '', author: 'Admin' });
+        setIsCreating(false);
+        fetchBlogPosts(); // Refresh the list
+
+        toast({
+          title: "Blog Post Created",
+          description: "Your blog post has been published successfully",
+        });
+      }
     }
+  };
+
+  const handleEdit = (post: BlogPost) => {
+    setEditingPost(post);
+    setFormData({
+      title: post.title,
+      content: post.content,
+      excerpt: post.excerpt,
+      author: post.author,
+    });
+    setIsCreating(false); // Close create form if open
+  };
+
+  const handleCancelEdit = () => {
+    setEditingPost(null);
+    setFormData({ title: '', content: '', excerpt: '', author: 'Admin' });
   };
 
   const handleDelete = async (id: string) => {
@@ -139,8 +187,10 @@ const AdminDashboard = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div>
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-semibold text-white">Create New Post</h2>
-              {!isCreating && (
+              <h2 className="text-2xl font-semibold text-white">
+                {editingPost ? 'Edit Post' : 'Create New Post'}
+              </h2>
+              {!isCreating && !editingPost && (
                 <Button onClick={() => setIsCreating(true)}>
                   <Plus className="mr-2 w-4 h-4" />
                   New Post
@@ -148,7 +198,7 @@ const AdminDashboard = () => {
               )}
             </div>
 
-            {isCreating && (
+            {(isCreating || editingPost) && (
               <Card className="bg-gray-800 border-gray-700">
                 <CardContent className="pt-6">
                   <form onSubmit={handleSubmit} className="space-y-4">
@@ -199,12 +249,18 @@ const AdminDashboard = () => {
                     </div>
                     <div className="flex gap-2">
                       <Button type="submit" className="bg-blue-600 hover:bg-blue-700">
-                        Publish Post
+                        {editingPost ? 'Update Post' : 'Publish Post'}
                       </Button>
                       <Button 
                         type="button" 
                         variant="outline" 
-                        onClick={() => setIsCreating(false)}
+                        onClick={() => {
+                          if (editingPost) {
+                            handleCancelEdit();
+                          } else {
+                            setIsCreating(false);
+                          }
+                        }}
                       >
                         Cancel
                       </Button>
@@ -232,14 +288,24 @@ const AdminDashboard = () => {
                             {new Date(post.published_at).toLocaleDateString()}
                           </div>
                         </div>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => handleDelete(post.id)}
-                          className="text-red-400 hover:text-red-300"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </Button>
+                        <div className="flex gap-2">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => handleEdit(post)}
+                            className="text-blue-400 hover:text-blue-300"
+                          >
+                            <Edit className="w-4 h-4" />
+                          </Button>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => handleDelete(post.id)}
+                            className="text-red-400 hover:text-red-300"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </Button>
+                        </div>
                       </div>
                     </CardHeader>
                     <CardContent>
