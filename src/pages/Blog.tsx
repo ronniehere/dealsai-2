@@ -2,9 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Calendar, User, ArrowLeft } from 'lucide-react';
+import { Calendar, User, ArrowLeft, Settings } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
+import { useAuth } from '@/contexts/AuthContext';
 import Header from '@/components/Header';
 
 interface BlogPost {
@@ -20,6 +21,7 @@ interface BlogPost {
 
 const Blog = () => {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     fetchBlogPosts();
@@ -42,12 +44,22 @@ const Blog = () => {
       <div className="pt-20 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <Link to="/">
-              <Button variant="outline" className="mb-6">
-                <ArrowLeft className="mr-2 w-4 h-4" />
-                Back to Home
-              </Button>
-            </Link>
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <Link to="/">
+                <Button variant="outline">
+                  <ArrowLeft className="mr-2 w-4 h-4" />
+                  Back to Home
+                </Button>
+              </Link>
+              {isAuthenticated && (
+                <Link to="/admin/dashboard">
+                  <Button variant="outline">
+                    <Settings className="mr-2 w-4 h-4" />
+                    Admin Dashboard
+                  </Button>
+                </Link>
+              )}
+            </div>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
               Sales Insights <span className="text-blue-400">Blog</span>
             </h1>
